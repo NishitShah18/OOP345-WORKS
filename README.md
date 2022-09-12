@@ -16,15 +16,26 @@ This subject expands the student's skill-set in object-oriented programming and 
 
 Upon successful completion of this subject the student will be able to:
 <ul>
-Design collections of model objects using sequential containers and multi-dimensional arrays to solve a systems or business problem
-Create function objects and closures to customize a programming solution for a particular application
-Model generalization and specialization using inheritance hierarchies to minimize the duplication of code
-Model polymorphic behavior using interfaces, virtual functions and templates (generics) to amplify the reusability of code
-Implement design components using algorithms of the standard template library to utilize existing technologies
-Create program components of quadratic complexity to solve non-linear problems
-Design program components using raw pointers and pointer arithmetic to access data in program memory
-Design multi-tasked solutions using threading libraries to improve the performance of a program
-Design file stream objects to backup text and binary data for future restoration
+<li>Design collections of model objects using sequential containers and multi-dimensional arrays to solve a systems or business problem
+</li>
+<li>Create function objects and closures to customize a programming solution for a particular application
+</li>
+<li>Create function objects and closures to customize a programming solution for a particular application
+</li>
+<li>Model generalization and specialization using inheritance hierarchies to minimize the duplication of code
+</li>
+<li>Model polymorphic behavior using interfaces, virtual functions and templates (generics) to amplify the reusability of code
+</li>
+<li>Implement design components using algorithms of the standard template library to utilize existing technologies
+</li>
+<li>Create program components of quadratic complexity to solve non-linear problems
+</li>
+<li>Design program components using raw pointers and pointer arithmetic to access data in program memory
+</li>
+<li>Design multi-tasked solutions using threading libraries to improve the performance of a program
+</li>
+<li>Design file stream objects to backup text and binary data for future restoration
+</li>
 </ul>
 
 <hr>
