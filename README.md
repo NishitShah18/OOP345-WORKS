@@ -17,9 +17,9 @@ Section: OOP345 NCC
     <th>Grades</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>Workshop - 1</td>
+    <td>Sep. 18</td>
+    <td>??/10</td>
   </tr>
 </table>
 
