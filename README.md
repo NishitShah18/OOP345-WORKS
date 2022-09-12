@@ -4,6 +4,8 @@ Student number: 130 176 217<br>
 Email Id: ngshah3@myseneca.ca<br>
 Section: OOP345 NCC
 
+<hr>
+
 # Subject Title
 
 Object-Oriented Software Development Using C++
