@@ -1,4 +1,7 @@
-# OOP345-WORKS
+# Nishit Shah
+# Student number: 130 176 217
+# Email Id: ngshah3@myseneca.ca
+# Section: OOP345 NCC
 
 # Subject Title
 
