@@ -1,18 +1,18 @@
 # OOP345-WORKS
 
-#Subject Title
+# Subject Title
 
 Object-Oriented Software Development Using C++
 
 <hr>
 
-#Subject Description
+# Subject Description
 
 This subject expands the student's skill-set in object-oriented programming and introduces the student to threaded programming.  The student learns to model relationships between classes using containers, inheritance hierarchies and polymorphism in the C++ programming language and to write C++ programs that execute on multiple threads.
 
 <hr>
 
-#Learning Outcomes
+# Learning Outcomes
 
 Upon successful completion of this subject the student will be able to:
 <ul>
@@ -29,7 +29,7 @@ Design file stream objects to backup text and binary data for future restoration
 
 <hr>
 
-#Essential Employability Skills
+# Essential Employability Skills
 
     •  Execute mathematical operations accurately.
     •  Apply a systematic approach to solve problems.
