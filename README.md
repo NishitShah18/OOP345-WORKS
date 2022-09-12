@@ -12,9 +12,9 @@ Section: OOP345 NCC
 # My Grades
 <table>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Info</th>
+    <th>Due Date</th>
+    <th>Grades</th>
   </tr>
   <tr>
     <td>Alfreds Futterkiste</td>
