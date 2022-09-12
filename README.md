@@ -10,7 +10,7 @@ Section: OOP345 NCC
 <hr>
 
 # My Grades
-<table style = "align=centre">
+<table style="text-align:center">
   <tr>
     <th>Info</th>
     <th>Due Date</th>
