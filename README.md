@@ -1,25 +1,15 @@
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
 
-<h2>HTML Table</h2>
+# My Student Details
+Nishit Shah<br>
+Student number: 130 176 217<br>
+Email Id: ngshah3@myseneca.ca<br>
+Section: OOP345 NCC
 
+<hr>
+
+# My Grades
 <table>
   <tr>
     <th>Company</th>
@@ -57,19 +47,6 @@ tr:nth-child(even) {
     <td>Italy</td>
   </tr>
 </table>
-
-# My Student Details
-Nishit Shah<br>
-Student number: 130 176 217<br>
-Email Id: ngshah3@myseneca.ca<br>
-Section: OOP345 NCC
-
-<hr>
-
-# My Grades
-<table>
-   <>
-   </table>
 
 <hr>
 
