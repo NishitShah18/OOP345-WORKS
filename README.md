@@ -18,8 +18,8 @@ Section: OOP345 NCC
   </tr>
   <tr>
     <td>Workshop - 1</td>
-    <td style="text-align:center">Sep. 18</td>
-    <td style="text-align:center">??/10</td>
+    <td>September 18</td>
+    <td>??/10</td>
   </tr>
 </table>
 
