@@ -1,7 +1,7 @@
 # My Student Details
-Nishit Shah
-Student number: 130 176 217
-Email Id: ngshah3@myseneca.ca
+Nishit Shah<br>
+Student number: 130 176 217<br>
+Email Id: ngshah3@myseneca.ca<br>
 Section: OOP345 NCC
 
 # Subject Title
