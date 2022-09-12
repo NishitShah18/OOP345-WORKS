@@ -1,6 +1,3 @@
-
-
-
 # My Student Details
 Nishit Shah<br>
 Student number: 130 176 217<br>
