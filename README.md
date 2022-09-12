@@ -10,7 +10,7 @@ Section: OOP345 NCC
 <hr>
 
 # My Grades
-<table style="text-align:center">
+<table>
   <tr>
     <th>Info</th>
     <th>Due Date</th>
@@ -18,8 +18,8 @@ Section: OOP345 NCC
   </tr>
   <tr>
     <td>Workshop - 1</td>
-    <td>Sep. 18</td>
-    <td>??/10</td>
+    <td style="text-align:center">Sep. 18</td>
+    <td style="text-align:center">??/10</td>
   </tr>
 </table>
 
