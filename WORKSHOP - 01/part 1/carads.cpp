@@ -13,7 +13,13 @@ I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
 
-#include<iostream>
+#include <iostream>
+#include "carads.h"
+
+using namespace std;
+
+double g_taxrate = 0.13;
+double g_discount = 0.15;
 
 namespace sdds {
     
