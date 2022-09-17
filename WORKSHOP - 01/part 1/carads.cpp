@@ -16,5 +16,18 @@ code that my professor provided to complete my workshops and assignments.
 #include<iostream>
 
 namespace sdds {
+    
+    void listArgs(int argc, char** argv)
+    {
+        cout << "Command Line:\n--------------------------\n";
+        cout << "  1: ws\n";
+        for (int i = 1; i < argc; i++)
+        {
+            cout << "  " << i + 1 << ": " << argv[i] << endl;
+        }
+        cout << "--------------------------\n";
+        cout << endl;
+    }
+
 
 }
