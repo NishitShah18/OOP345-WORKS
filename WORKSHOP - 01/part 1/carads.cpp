@@ -35,5 +35,14 @@ namespace sdds {
         cout << endl;
     }
 
+    Cars::Cars()
+    {
+        m_brand = nullptr;
+        m_model = nullptr;
+        m_year = 0;
+        m_price = 0.0;
+        m_status = ' ';
+        m_counter = 0;
+    }
 
 }
