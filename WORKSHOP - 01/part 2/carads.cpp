@@ -122,6 +122,7 @@ namespace sdds
         }
         else
         {
+            delete[] m_brand;
             m_brand = nullptr;
         }
 
