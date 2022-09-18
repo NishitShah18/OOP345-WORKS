@@ -94,7 +94,7 @@ namespace sdds
         cout << "Command Line:" << endl;
         cout << "--------------------------" << endl;
         for (i = 0; i < argc; i++)
-            std::cout << i+1 << ": " << argv[i] << std::endl;
+            cout << "  " << i+1 << ": " << argv[i] << endl;
         cout << "--------------------------\n";
         cout << endl;
     }
