@@ -13,7 +13,46 @@ I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
 
-
+// I told my friend a logic of reading file, the code was not shared 
+// but I am attaching the piece of code of whoes logic was shared. :)
+/*
+* His Info :
+Name: Jill Vishant Patel
+Email: jvpatel23@myseneca.ca
+Student ID: 124361213
+Date: 18/05/2022
+*/
+/*
+* The code I helped him with following code:
+ class Cars
+{
+    .
+    .
+    .
+    int eofErrorSolver{};
+    .
+    .
+    .
+};
+void Cars::read(std::istream& is)
+{
+    .
+    .
+    .
+    .
+    if (is.eof())
+    {
+        eofErrorSolver = 1;
+    }
+    else {
+        eofErrorSolver = 0;
+    }
+    .
+    .
+    .
+    .
+}
+*/
 
 #include <iostream>
 #include <iomanip>
@@ -60,8 +99,8 @@ namespace sdds
         cout << endl;
     }
 
-    void Cars::read(std::istream& is) {
-       
+    void Cars::read(std::istream& is) 
+    {  
         if (is.bad()) {
             cerr << "Error opening file" << endl;
             exit(1);
