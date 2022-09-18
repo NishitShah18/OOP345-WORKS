@@ -13,8 +13,6 @@ I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
 
-
-
 // Workshop 1 
 // Wail Mardini - 2022/07/04
 // Cornel - 2022/09/08
@@ -34,19 +32,20 @@ int cout = 0; // this is intentional
 
 // TODO: write the prototype for the main function
 //         to accept command line arguments
+
 int main(int argc, char* argv[])
 {
 	// will break compilation if best practices about namespaces are ignored
 	cout = 1;
 
 	// This functions lists the command line arguments
-	sdds::listArgs(argc, argv);
+	sdds::listArgs(argc,argv); 
 
 	// Read all ads and record them
 	sdds::Cars recordedCarsOnAds[MAX_CARS];
 
 	// Keep a count of how many new cars and all cars read
-	size_t newCars = 0, allCars = 0;
+	size_t newCars = 0, allCars=0;
 
 	sdds::Cars currentCar;
 
@@ -60,11 +59,11 @@ int main(int argc, char* argv[])
 	{
 
 		// Rates change from ad 1 to ad 2
-		if (ad == 1) { // special day! no tax for all cars and 10% discount for applicable cars!
-			g_taxrate = 0;
+		if (ad == 1){ // special day! no tax for all cars and 10% discount for applicable cars!
+			g_taxrate = 0; 
 			g_discount = 0.10;
 		}
-		else {
+		else{
 			g_taxrate = 0.13;
 			g_discount = 0.05;
 		}
@@ -80,15 +79,15 @@ int main(int argc, char* argv[])
 		// loop through each ad
 		while (!in.eof())
 		{
-			// read in the rest of the data as a FoodOrder
-			currentCar.read(in);
+				// read in the rest of the data as a FoodOrder
+				currentCar.read(in);
 
-			// Count the new cars
-			if (currentCar.getStatus() == 'N') {
-				newCars++;
-			}
-			recordedCarsOnAds[allCars++] = currentCar;
-			currentCar.display(0);
+				// Count the new cars
+				if (currentCar.getStatus() == 'N') {
+					newCars++;
+				}
+				recordedCarsOnAds[allCars++] = currentCar;
+				currentCar.display(0);
 		}
 	}
 
@@ -125,3 +124,4 @@ U,Honda,CRV,2015,15000,Y
 	Y - Discount applies
 	N - Discount does not apply
 */
+
