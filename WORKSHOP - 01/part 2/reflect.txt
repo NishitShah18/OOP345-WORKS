@@ -12,3 +12,46 @@ Autheticity Declaraition :
 I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
+
+The Rule of Three states that if a type ever needs to have a user-defined copy constructor, copy assignment operator, or destructor, then it must have all three. 
+
+In this workshop - 1, I have learned about utilizing variables from other translation units, how to use program arguments, and how to use variables that persist throughout the lifetime of a program. 
+
+The distinction between external and internal linkage is that external linkage must deal with variables, functions, and templates declared in one translation unit and accessible by other translation units. The global variable extern double g_taxrate; or extern double g_discount; is used by the w1_p2 module and the carads module, which are in different translation units.
+
+Internal linkage refers to variables, functions, and templates that are only accessible by a scope within its own translation unit. The static int COUNTER = 1; used to control COUNTER in the display() function is an example. The variable remains in the program's memory after the function is completed. If COUNTER was used in the scope of w1_p2, the static variable used in the w1_p2 scope and the static variable used in the carads scope would have different values.
+
+The main issue I had was with the display function. Even if the file was closed, it was printing once. As a result, I had to use a variable to control the execution of the display function.
+
+code I used to solve the problem:
+
+    void Cars::read(std::istream& is) 
+    {  
+        .
+	.
+	.
+	.
+        if (is.eof())
+        {
+            eofErrorSolver = 1;
+        } 
+        else {
+            eofErrorSolver = 0;
+        }
+    }
+
+    void Cars::display(bool reset)
+    {
+        .
+	.
+	.
+	.
+        if (eofErrorSolver != 1) {
+            .
+	    .
+ 	    .
+	    .
+        }
+    }
+
+Everything else was easy but I had to review OOP244.
