@@ -12,6 +12,9 @@ Autheticity Declaraition :
 I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
+
+
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -97,6 +100,10 @@ namespace sdds
 
     void Cars::display(bool reset) const
     {
+        if (reset != 0)
+        {
+            COUNTER = 1;
+        }
         if (eofErrorSolver != 1) {
             if (m_status == '\0') {
                 cout << COUNTER << " . No Car" << endl;
@@ -121,15 +128,3 @@ namespace sdds
     }
 
 }
-
-/*
-    if (!m_onPromotion)
-        cout << setw(2) << left << COUNTER << ". " << setw(10) << left << m_brand << "| " << setw(15) << left << m_model << "| " << setw(1) << left << m_year << " | " << setw(11) << right << fixed << setprecision(2) << m_price << "|" << endl;
-    else
-    {
-        // check if file name is ad1 or ad2
-        double specialPrice = m_price - (m_price * g_discount);
-        // specialPrice++;
-        cout << setw(2) << left << COUNTER << ". " << setw(10) << left << m_brand << "| " << setw(15) << left << m_model << "| " << setw(1) << left << m_year << " | " << setw(11) << right << fixed << setprecision(2) << m_price << "| " << setw(11) << right << fixed << setprecision(2) << specialPrice << endl;
-    }
-*/
