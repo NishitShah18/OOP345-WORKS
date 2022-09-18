@@ -23,7 +23,7 @@ namespace sdds
     
     class Cars
     {
-        //a C-style null-terminated string of up to 10 characters including the null byte terminator representing the brand of the car.
+        //a C-style null-terminated string of up to any characters including the null byte terminator representing the brand of the car.
         char* m_brand{};
         //a C-style null-terminated string of up to 15 characters including the null byte terminator representing the model of the car.
         char m_model[15]{};

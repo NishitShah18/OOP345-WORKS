@@ -71,13 +71,13 @@ namespace sdds
 
     void Cars::setempty() 
     {
+        //a C-style null-terminated string of up to any characters including the null byte terminator representing the brand of the car.
         m_brand = nullptr;
         return;
     }
 
     Cars::Cars()
     {
-        //a C-style null-terminated string of up to 10 characters including the null byte terminator representing the brand of the car.
         setempty();
         //a C-style null-terminated string of up to 15 characters including the null byte terminator representing the model of the car.
         strcpy(m_model, "\0");
@@ -185,7 +185,6 @@ namespace sdds
             is.ignore();
 
             delete[] m_brand;
-
             is.getline(cString, 1024, ',');
             m_brand = new char[strlen(cString) + 1];
             strcpy(m_brand, cString);
