@@ -6,14 +6,14 @@ Student ID# : 130 176 217
 Email       : ngshah3@myseneca.ca
 Section     : OOP345 NCC
 
-Date : 17th September 2022
+Date : 18th September 2022
 
 Autheticity Declaraition :
 I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
 
-// I told my friend a logic of reading file, the code was not shared 
+// I taught my friend a logic of reading file, the code was not shared 
 // but I am attaching the piece of code of whoes logic was shared. :)
 /*
 * His Info :
