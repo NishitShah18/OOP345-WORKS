@@ -12,46 +12,38 @@ Autheticity Declaraition :
 I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
+// The constexpr keyword declares that the value of its identifier is a run-time constant and can be evaluated at compile time.
 
-#ifndef SDDS_MEMBERPARLIAMENT_H
-#define SDDS_MEMBERPARLIAMENT_H
-
-//Global Variables
+#ifndef SDDS_CARADS_H_
+#define SDDS_CARADS_H_
 extern double g_taxrate;
 extern double g_discount;
+namespace sdds
+{
+    void listArgs(int argc, char* argv[]);
+    
+    class Cars
+    {
+        //a C-style null-terminated string of up to 10 characters including the null byte terminator representing the brand of the car.
+        char m_brand[10]{};
+        //a C-style null-terminated string of up to 15 characters including the null byte terminator representing the model of the car.
+        char m_model[15]{};
+        //the manufacture year of the car.
+        int m_year{};
+        //the price of the car represented by a double value.
+        double m_price{};
+        //the status of the cars as used or new using a single character(holds N or U)
+        char m_status{};
+        //a boolean flag indicating whether or not the car is on promotion discount
+        bool m_onPromotion{};
+        double m_specialPrice{};
+        int eofErrorSolver{};
 
-namespace sdds {
-
-	//Global Function
-	//listArgs receives the same parameters as the main function (same types, same order)
-	void listArgs(int argc, char* argv[]);
-
-	//Class Cars
-	class Cars {
-		//a C-style null-terminated string of up to 10 characters including the null byte terminator representing the brand of the car.
-		char* m_brand{};
-		//a C-style null-terminated string of up to 15 characters including the null byte terminator representing the model of the car.
-		char* m_model{};
-		//the manufacture year of the car.
-		int m_year{};
-		//the price of the car represented by a double value.
-		double m_price{};
-		//the status of the cars as used or new using a single character (holds N or U)
-		char m_status{};
-		//a boolean flag indicating whether or not the car is on promotion discount
-		bool m_onPromotion{};
-		size_t m_counter{};
-
-	public:
-		//default constructor
-		Cars();
-		//reads from istream
-		void read(std::istream& is);
-		//displays to the screen the content of an Cars instance
-		void display(bool reset) const;
-		//returns if the car is new or used.
-		char getStatus() const;
-	};
+    public:
+        Cars();
+        void read(std::istream& is);
+        void display(bool reset) const;
+        char getStatus() const;
+    };
 }
-
-#endif
+#endif // !SDDS_CARADS_H_
