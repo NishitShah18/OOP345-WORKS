@@ -95,6 +95,7 @@ namespace sdds
 
     Cars::Cars(const Cars& cars)
     {
+        delete[] m_brand;
         m_brand = new char[strlen(cars.m_brand) + 1];
         strcpy(m_brand, cars.m_brand);
 
