@@ -184,6 +184,8 @@ namespace sdds
             is >> m_status;
             is.ignore();
 
+            delete[] m_brand;
+
             is.getline(cString, 1024, ',');
             m_brand = new char[strlen(cString) + 1];
             strcpy(m_brand, cString);
