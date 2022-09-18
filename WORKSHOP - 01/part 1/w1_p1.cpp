@@ -13,6 +13,8 @@ I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
 *************************************************************************/
 
+
+
 // Workshop 1 
 // Wail Mardini - 2022/07/04
 // Cornel - 2022/09/08
@@ -32,7 +34,7 @@ int cout = 0; // this is intentional
 
 // TODO: write the prototype for the main function
 //         to accept command line arguments
-? ? ?
+int main(int argc, char* argv[])
 {
 	// will break compilation if best practices about namespaces are ignored
 	cout = 1;
