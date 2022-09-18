@@ -45,11 +45,15 @@ namespace sdds
         Cars(const Cars& cars);
         Cars& operator=(const Cars& cars);
         
+        operator bool() const;
+
         void setempty();
         Cars();
         void read(std::istream& is);
         void display(bool reset);
         char getStatus() const;
     };
+    std::istream& operator>>(std::istream& is, Cars& car);
+    void operator>>(const Cars& car1, Cars& car2);
 }
 #endif // !SDDS_CARADS_H_

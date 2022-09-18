@@ -23,7 +23,7 @@ Student ID: 124361213
 Date: 18/05/2022
 */
 /*
-* The code I helped him with following code:
+* I helped him with following code:
  class Cars
 {
     .
@@ -146,6 +146,16 @@ namespace sdds
         setempty();
     }
 
+    Cars::operator bool() const
+    {
+        bool returnValue = false;
+        if (m_status == 'N')
+        {
+            returnValue = true;
+        }
+        return returnValue;
+    }
+
     void listArgs(int argc, char* argv[])
     {
         int i;
@@ -240,4 +250,16 @@ namespace sdds
         return m_status;
     }
 
+    istream& operator>>(istream& is, Cars& cars)
+    {
+        cars.read(is);
+        return is;
+    }
+
+    void operator>>(const Cars& car1, Cars& car2)
+    {
+        car2 = car1;
+
+        return;
+    }
 }
