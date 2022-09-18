@@ -24,7 +24,7 @@ namespace sdds
     class Cars
     {
         //a C-style null-terminated string of up to 10 characters including the null byte terminator representing the brand of the car.
-        char m_brand[10]{};
+        char* m_brand{};
         //a C-style null-terminated string of up to 15 characters including the null byte terminator representing the model of the car.
         char m_model[15]{};
         //the manufacture year of the car.
@@ -39,6 +39,13 @@ namespace sdds
         int eofErrorSolver{};
 
     public:
+
+        // Rule of three
+        ~Cars();
+        Cars(const Cars& cars);
+        Cars& operator=(const Cars& cars);
+        
+        void setempty();
         Cars();
         void read(std::istream& is);
         void display(bool reset);

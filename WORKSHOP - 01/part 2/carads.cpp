@@ -69,10 +69,16 @@ namespace sdds
 {
     static int COUNTER = 1;
 
+    void Cars::setempty() 
+    {
+        m_brand = nullptr;
+        return;
+    }
+
     Cars::Cars()
     {
         //a C-style null-terminated string of up to 10 characters including the null byte terminator representing the brand of the car.
-        strcpy(m_brand, "\0");
+        setempty();
         //a C-style null-terminated string of up to 15 characters including the null byte terminator representing the model of the car.
         strcpy(m_model, "\0");
         //the manufacture year of the car.
@@ -85,6 +91,59 @@ namespace sdds
         m_onPromotion = false;
         m_specialPrice = 0.0;
         eofErrorSolver = 0;
+    }
+
+    Cars::Cars(const Cars& cars)
+    {
+        m_brand = new char[strlen(cars.m_brand) + 1];
+        strcpy(m_brand, cars.m_brand);
+
+        strcpy(m_model, cars.m_model);
+
+        m_year = cars.m_year;
+
+        m_price = cars.m_price;
+
+        m_status = cars.m_status;
+
+        m_onPromotion = cars.m_onPromotion;
+        m_specialPrice = cars.m_specialPrice;
+        eofErrorSolver = cars.eofErrorSolver;
+    }
+
+    Cars& Cars::operator=(const Cars& cars) 
+    {
+        if (cars.m_brand)
+        {
+            delete[] m_brand;
+            setempty();
+            m_brand = new char[strlen(cars.m_brand) + 1];
+            strcpy(m_brand, cars.m_brand);
+        }
+        else
+        {
+            m_brand = nullptr;
+        }
+
+        strcpy(m_model, cars.m_model);
+
+        m_year = cars.m_year;
+
+        m_price = cars.m_price;
+
+        m_status = cars.m_status;
+
+        m_onPromotion = cars.m_onPromotion;
+        m_specialPrice = cars.m_specialPrice;
+        eofErrorSolver = cars.eofErrorSolver;
+
+        return *this;
+    }
+
+    Cars::~Cars()
+    {
+        delete[] m_brand;
+        setempty();
     }
 
     void listArgs(int argc, char* argv[])
@@ -106,15 +165,25 @@ namespace sdds
             exit(1);
         }
         else {
+
+            char cString[1024]{};
             char forBool{};
+
             is >> m_status;
             is.ignore();
-            is.getline(m_brand, 10, ',');
+
+            is.getline(cString, 1024, ',');
+            m_brand = new char[strlen(cString) + 1];
+            strcpy(m_brand, cString);
+
             is.getline(m_model, 15, ',');
+
             is >> m_year;
             is.ignore();
+
             is >> m_price;
             is.ignore();
+
             is >> forBool;
 
             if (forBool == 'Y')
