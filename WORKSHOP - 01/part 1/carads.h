@@ -42,7 +42,7 @@ namespace sdds
     public:
         Cars();
         void read(std::istream& is);
-        void display(bool reset) const;
+        void display(bool reset);
         char getStatus() const;
     };
 }

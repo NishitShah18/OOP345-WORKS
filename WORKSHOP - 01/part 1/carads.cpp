@@ -117,11 +117,9 @@ namespace sdds
             is.ignore();
             is >> forBool;
 
-            m_price = m_price * (1 + g_taxrate);
             if (forBool == 'Y')
             {
                 m_onPromotion = true;
-                m_specialPrice = m_price - (m_price * g_discount);
             }
             else
             {
@@ -137,7 +135,7 @@ namespace sdds
         }
     }
 
-    void Cars::display(bool reset) const
+    void Cars::display(bool reset)
     {
         if (reset != 0)
         {
@@ -148,14 +146,21 @@ namespace sdds
                 cout << COUNTER << " . No Car" << endl;
             }
             else {
+                double tempP = 0.0;
+                tempP = m_price;
+                m_price = m_price * (1 + g_taxrate);
                 if (m_onPromotion)
                 {
+                    double tempsp = 0.0;
+                    tempsp = m_specialPrice;
+                    m_specialPrice = m_price - (m_price * g_discount);
                     cout << setw(2) << left << COUNTER << ". " << setw(10) << left << m_brand << "| " << setw(15) << left << m_model << "| " << setw(1) << left << m_year << " | " << setw(11) << right << fixed << setprecision(2) << m_price << "| " << setw(11) << right << fixed << setprecision(2) << m_specialPrice << endl;
-
+                    m_specialPrice = tempsp;
                 }
                 else {
                     cout << setw(2) << left << COUNTER << ". " << setw(10) << left << m_brand << "| " << setw(15) << left << m_model << "| " << setw(1) << left << m_year << " | " << setw(11) << right << fixed << setprecision(2) << m_price << "|" << endl;
                 }
+                m_price = tempP;
             }
             COUNTER++;
         }
