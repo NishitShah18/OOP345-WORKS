@@ -102,14 +102,15 @@ namespace sdds {
 				read(file, &m_tennisMatch[i]);
 				i++;
 			}
-				cout << m_tennisMatch[m_storedMatches-1];
 		}
 
 		return;
 	}
 
 	// This function receives a TennisMatch object and returns nothing. It adds the object in list.
-	void TennisLog::addMatch(const TennisMatch& match){}
+	void TennisLog::addMatch(const TennisMatch& match){
+		cout << this->m_storedMatches << endl;
+	}
 
 	// This function receives a name of a player as a parameter and returns a TennisLog object.
 	TennisLog TennisLog::findMatches(const char* name){
@@ -120,12 +121,21 @@ namespace sdds {
 	// The query returns the TennisMatch in the dynamic array at the index provided
 	TennisMatch TennisLog::operator[](size_t index) {
 		TennisMatch temp;
+		if (this->m_tennisMatch != nullptr)
+		{
+			strcpy(temp.m_loser,this->m_tennisMatch[index].m_loser);
+			strcpy(temp.m_tournamentID,this->m_tennisMatch[index].m_tournamentID);
+			strcpy(temp.m_tournamentName,this->m_tennisMatch[index].m_tournamentName);
+			strcpy(temp.m_winner,this->m_tennisMatch[index].m_winner);
+			temp.m_matchID = this->m_tennisMatch[index].m_matchID;
+		}
 		return temp;
 	}
 
+
 	// This casting operator will convert the current object to a size_t value.
 	TennisLog::operator size_t() {
-		return 0;
+		return this->m_storedMatches;
 	}
 
 	// Helper Functions :
@@ -153,6 +163,7 @@ namespace sdds {
 		return totalMatches;
 	}
 
+	// Helper Functions :
 	void read(istream& is, TennisMatch* match) {
 		is.getline(match->m_tournamentID, MAX_LEN_TOURNAMENT_ID, ',');
 		is.getline(match->m_tournamentName, MAX_LEN_TOURNAMENT_NAME, ',');

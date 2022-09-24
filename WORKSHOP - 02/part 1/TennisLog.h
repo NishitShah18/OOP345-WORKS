@@ -36,7 +36,7 @@ namespace sdds {
 		//a string representing the Tournament Name
 		char m_tournamentName[MAX_LEN_TOURNAMENT_NAME + 1] = "\0";
 		//a positive integer representing the Match ID
-		size_t m_matchID{};
+		long long m_matchID{};
 		//a string representing the Winner of the match
 		char m_winner[MAX_LEN_WINNER_NAME + 1] = "\0";
 		//a string representing the Loser of the match
@@ -53,7 +53,6 @@ namespace sdds {
 		size_t m_storedMatches{};
 
 	public:
-
 		// Default constructor
 		TennisLog();
 
@@ -76,9 +75,10 @@ namespace sdds {
 		// Later...
 		//virtual ~TennisLog();
 	};
-		// Helper Functions :
-		size_t countMatches(const char* FileName);
-		void read(std::istream& is, TennisMatch* match);
+
+	// Helper Functions :
+	size_t countMatches(const char* FileName);
+	void read(std::istream& is, TennisMatch* match);
 }
 
 #endif // !SDDS_TENNISLOG_H_
