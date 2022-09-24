@@ -19,7 +19,7 @@ code that my professor provided to complete my workshops and assignments.
 using namespace std;
 namespace sdds { 
 
-	static const int MAX_LEN_TOURNAMENT_ID = 8;
+	static const int MAX_LEN_TOURNAMENT_ID = 10;
 	static const int MAX_LEN_TOURNAMENT_NAME = 128;
 	static const int MAX_LEN_WINNER_NAME = 64;
 	static const int MAX_LEN_LOSER_NAME = 64;
@@ -42,7 +42,7 @@ namespace sdds {
 		//a string representing the Loser of the match
 		char m_loser[MAX_LEN_LOSER_NAME + 1] = "\0";
 	};
-	// Overloaded the insertion operator to output a TennisMatch object to an output stream.
+	// Overloaded insertion operator to output a TennisMatch object to an output stream.
 	ostream& operator<<(ostream& os, const TennisMatch& match);
 
 	// TennisLog: manages a collection of matches
@@ -51,9 +51,6 @@ namespace sdds {
 		TennisMatch* m_tennisMatch;
 		//a count of how many are being stored
 		size_t m_storedMatches{};
-		// Helper Functions :
-		size_t countMatches(const char* FileName);
-		void readMatchesDataFromFile(const char* FileName);
 
 	public:
 
@@ -79,6 +76,9 @@ namespace sdds {
 		// Later...
 		//virtual ~TennisLog();
 	};
+		// Helper Functions :
+		size_t countMatches(const char* FileName);
+		void read(std::istream& is, TennisMatch* match);
 }
 
 #endif // !SDDS_TENNISLOG_H_

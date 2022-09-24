@@ -21,9 +21,10 @@ code that my professor provided to complete my workshops and assignments.
 using namespace std;
 
 namespace sdds {
-
+	
+	// Overloaded insertion operator to output a TennisMatch object to an output stream.
 	ostream& operator<<(ostream& os, const TennisMatch& match) {
-		if (!strcmp(match.m_tournamentID, "\0"))
+		if (strcmp(match.m_tournamentID, "\0"))
 		{
 			os.width(20);
 			os.fill('.');
@@ -69,13 +70,42 @@ namespace sdds {
 		return os;
 	}
 
+	// Default constructor
 	TennisLog::TennisLog() {
 		m_tennisMatch = nullptr;
 		m_storedMatches = 0;
 	}
 
+	// A one argument constructor that receives a filename as a parameter from which the current object will be populated.
 	TennisLog::TennisLog(const char* FileName) {
 		
+		m_tennisMatch = nullptr;
+		
+		m_storedMatches = countMatches(FileName);
+
+		m_tennisMatch = new TennisMatch[m_storedMatches];
+
+		int i = 0;
+		ifstream file;
+
+		file.open(FileName, ios::in);
+
+		if (file.bad())
+		{
+			cerr << "Error opening file" << endl;
+			exit(1);
+		}
+		else {
+			file.ignore(1028, '\n');
+			while (file.good())
+			{
+				read(file, &m_tennisMatch[i]);
+				i++;
+			}
+				cout << m_tennisMatch[m_storedMatches-1];
+		}
+
+		return;
 	}
 
 	// This function receives a TennisMatch object and returns nothing. It adds the object in list.
@@ -98,4 +128,39 @@ namespace sdds {
 		return 0;
 	}
 
+	// Helper Functions :
+	size_t countMatches(const char* FileName) {
+		char temp = '\0';
+		size_t lines = 0;
+		size_t totalMatches = 0;
+		ifstream file;
+		
+		file.open(FileName, ios::in);
+		
+		file.get(temp);
+		
+		while (file)
+		{
+			if (temp == '\n')
+			{
+				lines++;
+			}
+			file.get(temp);
+		}
+		
+		totalMatches = lines - 1;
+		
+		return totalMatches;
+	}
+
+	void read(istream& is, TennisMatch* match) {
+		is.getline(match->m_tournamentID, MAX_LEN_TOURNAMENT_ID, ',');
+		is.getline(match->m_tournamentName, MAX_LEN_TOURNAMENT_NAME, ',');
+		is >> match->m_matchID;
+		is.ignore();
+		is.getline(match->m_winner, MAX_LEN_WINNER_NAME, ',');
+		is.getline(match->m_loser, MAX_LEN_LOSER_NAME, '\n');
+
+		return;
+	}
 }
