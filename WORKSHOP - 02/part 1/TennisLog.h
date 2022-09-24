@@ -16,8 +16,17 @@ code that my professor provided to complete my workshops and assignments.
 #ifndef SDDS_TENNISLOG_H_
 #define SDDS_TENNISLOG_H_
 
+using namespace std;
 namespace sdds {
-	// hello;
+	struct TennisMatch {
+		char* m_tournamentID{};
+		char* m_tournamentName{};
+		size_t m_matchID{};
+		char* m_winner{};
+		char* m_loser{};
+	};
+	istream& operator>>(istream& is, TennisMatch& data);
+
 }
 
 #endif // !SDDS_TENNISLOG_H_
