@@ -17,23 +17,33 @@ code that my professor provided to complete my workshops and assignments.
 #define SDDS_TENNISLOG_H_
 
 using namespace std;
-namespace sdds {
+namespace sdds { 
+
+	static const int MAX_LEN_TOURNAMENT_ID = 8;
+	static const int MAX_LEN_TOURNAMENT_NAME = 128;
+	static const int MAX_LEN_WINNER_NAME = 64;
+	static const int MAX_LEN_LOSER_NAME = 64;
+	static const char TOURNAMENT_ID_HEAD[] = "Tourney ID";
+	static const char TOURNAMENT_NAME_HEAD[] = "Tourney";
+	static const char MATCH_ID_HEAD[] = "Match ID";
+	static const char WINNER_NAME_HEAD[] = "Winner";
+	static const char LOSER_NAME_HEAD[] = "Loser";
 
 	// TennisMatch: contains data about a single match between two players
 	struct TennisMatch {
 		//a string representing the Tournament ID
-		char* m_tournamentID{};
+		char m_tournamentID[MAX_LEN_TOURNAMENT_ID + 1] = "\0";
 		//a string representing the Tournament Name
-		char* m_tournamentName{};
+		char m_tournamentName[MAX_LEN_TOURNAMENT_NAME + 1] = "\0";
 		//a positive integer representing the Match ID
 		size_t m_matchID{};
 		//a string representing the Winner of the match
-		char* m_winner{};
+		char m_winner[MAX_LEN_WINNER_NAME + 1] = "\0";
 		//a string representing the Loser of the match
-		char* m_loser{};
+		char m_loser[MAX_LEN_LOSER_NAME + 1] = "\0";
 	};
 	// Overloaded the insertion operator to output a TennisMatch object to an output stream.
-	istream& operator>>(istream& is, TennisMatch& data);
+	ostream& operator<<(ostream& os, const TennisMatch& match);
 
 	// TennisLog: manages a collection of matches
 	class TennisLog {
