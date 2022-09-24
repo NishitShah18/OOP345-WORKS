@@ -66,7 +66,7 @@ namespace sdds {
 		operator size_t();
 
 		// Rule of 5:
-		// later...
+		// Later...
 		//virtual ~TennisLog();
 	};
 }
