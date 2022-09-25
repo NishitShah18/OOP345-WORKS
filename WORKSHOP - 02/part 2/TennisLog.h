@@ -17,7 +17,7 @@ code that my professor provided to complete my workshops and assignments.
 #define SDDS_TENNISLOG_H_
 
 using namespace std;
-namespace sdds { 
+namespace sdds {
 
 	static const int MAX_LEN_TOURNAMENT_ID = 10;
 	static const int MAX_LEN_TOURNAMENT_NAME = 128;
@@ -53,7 +53,7 @@ namespace sdds {
 		//a dynamic array of TennisMatches
 		TennisMatch* m_tennisMatch;
 		//a count of how many are being stored
-		int m_storedMatches{};
+		size_t m_storedMatches{};
 
 	public:
 		// Default constructor

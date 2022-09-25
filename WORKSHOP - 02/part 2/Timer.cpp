@@ -29,7 +29,8 @@ namespace sdds {
 	long long Timer::stop()
 	{
 		m_endTime = std::chrono::steady_clock::now();
-		return (long long (std::chrono::duration_cast <std::chrono::nanoseconds> (m_endTime - m_startTime).count()));
+		long long timeDiff = size_t (std::chrono::duration_cast <std::chrono::nanoseconds> (m_endTime - m_startTime).count());
+		return timeDiff;
 	}
 
 }

@@ -21,7 +21,7 @@ code that my professor provided to complete my workshops and assignments.
 using namespace std;
 
 namespace sdds {
-	
+
 	// Overloaded insertion operator to output a TennisMatch object to an output stream.
 	ostream& operator<<(ostream& os, const TennisMatch& match) {
 		if (strcmp(match.m_tournamentID, "\0"))
@@ -66,7 +66,7 @@ namespace sdds {
 		{
 			os << "Empty Match";
 		}
-		
+
 		return os;
 	}
 
@@ -78,14 +78,13 @@ namespace sdds {
 
 	// A one argument constructor that receives a filename as a parameter from which the current object will be populated.
 	TennisLog::TennisLog(const char* FileName) {
-		
+
 		m_tennisMatch = nullptr;
-		
+
 		m_storedMatches = countMatches(FileName);
 
 		m_tennisMatch = new TennisMatch[m_storedMatches];
 
-		int i = 0;
 		ifstream file;
 
 		file.open(FileName, ios::in);
@@ -97,10 +96,9 @@ namespace sdds {
 		}
 		else {
 			file.ignore(1028, '\n');
-			while (file.good())
+			for (size_t i = 0; i < m_storedMatches; i++)
 			{
 				read(file, &m_tennisMatch[i]);
-				i++;
 			}
 		}
 
@@ -114,11 +112,11 @@ namespace sdds {
 	}
 
 	// This function receives a TennisMatch object and returns nothing. It adds the object in list.
-	void TennisLog::addMatch(TennisMatch& match){
+	void TennisLog::addMatch(TennisMatch& match) {
 		TennisMatch* temp = new TennisMatch[this->m_storedMatches];
-		if (this->m_storedMatches != 0) 
+		if (this->m_storedMatches != 0)
 		{
-			for (int i = 0; i < this->m_storedMatches; i++)
+			for (size_t i = 0; i < this->m_storedMatches; i++)
 			{
 				strcpy(temp[i].m_loser, this->m_tennisMatch[i].m_loser);
 				strcpy(temp[i].m_tournamentID, this->m_tennisMatch[i].m_tournamentID);
@@ -133,7 +131,7 @@ namespace sdds {
 		delete[] this->m_tennisMatch;
 		this->m_tennisMatch = new TennisMatch[this->m_storedMatches];
 
-		for (int i = 0; i < (this->m_storedMatches-1); i++)
+		for (size_t i = 0; i < (this->m_storedMatches - 1); i++)
 		{
 			strcpy(this->m_tennisMatch[i].m_loser, temp[i].m_loser);
 			strcpy(this->m_tennisMatch[i].m_tournamentID, temp[i].m_tournamentID);
@@ -141,19 +139,19 @@ namespace sdds {
 			strcpy(this->m_tennisMatch[i].m_winner, temp[i].m_winner);
 			this->m_tennisMatch[i].m_matchID = temp[i].m_matchID;
 		}
-		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_loser, match.m_loser);
-		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentID, match.m_tournamentID);
-		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentName, match.m_tournamentName);
-		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_winner, match.m_winner);
-		this->m_tennisMatch[this->m_storedMatches-1].m_matchID = match.m_matchID;
+		strcpy(this->m_tennisMatch[this->m_storedMatches - 1].m_loser, match.m_loser);
+		strcpy(this->m_tennisMatch[this->m_storedMatches - 1].m_tournamentID, match.m_tournamentID);
+		strcpy(this->m_tennisMatch[this->m_storedMatches - 1].m_tournamentName, match.m_tournamentName);
+		strcpy(this->m_tennisMatch[this->m_storedMatches - 1].m_winner, match.m_winner);
+		this->m_tennisMatch[this->m_storedMatches - 1].m_matchID = match.m_matchID;
 
 		delete[] temp;
 	}
 
 	// This function receives a name of a player as a parameter and returns a TennisLog object.
-	TennisLog TennisLog::findMatches(const char* name){
+	TennisLog TennisLog::findMatches(const char* name) {
 		TennisLog log;
-		for (int i = 0; i < this->m_storedMatches; i++) {
+		for (size_t i = 0; i < this->m_storedMatches; i++) {
 			if (strcmp(this->m_tennisMatch[i].m_loser, name) == 0 || strcmp(this->m_tennisMatch[i].m_winner, name) == 0) {
 				log.m_storedMatches++;
 			}
@@ -161,9 +159,9 @@ namespace sdds {
 
 		log.m_tennisMatch = new TennisMatch[log.m_storedMatches];
 
-		int index = 0;
+		size_t index = 0;
 
-		for (int i = 0; i < this->m_storedMatches && index < log.m_storedMatches; i++)
+		for (size_t i = 0; i < this->m_storedMatches && index < log.m_storedMatches; i++)
 		{
 			if (strcmp(this->m_tennisMatch[i].m_loser, name) == 0 || strcmp(this->m_tennisMatch[i].m_winner, name) == 0) {
 				strcpy(log.m_tennisMatch[index].m_loser, this->m_tennisMatch[i].m_loser);
@@ -171,7 +169,7 @@ namespace sdds {
 				strcpy(log.m_tennisMatch[index].m_tournamentName, this->m_tennisMatch[i].m_tournamentName);
 				strcpy(log.m_tennisMatch[index].m_winner, this->m_tennisMatch[i].m_winner);
 				log.m_tennisMatch[index].m_matchID = this->m_tennisMatch[i].m_matchID;
-				
+
 				index++;
 			}
 		}
@@ -184,10 +182,10 @@ namespace sdds {
 		TennisMatch temp;
 		if (this->m_tennisMatch != nullptr)
 		{
-			strcpy(temp.m_loser,this->m_tennisMatch[index].m_loser);
-			strcpy(temp.m_tournamentID,this->m_tennisMatch[index].m_tournamentID);
-			strcpy(temp.m_tournamentName,this->m_tennisMatch[index].m_tournamentName);
-			strcpy(temp.m_winner,this->m_tennisMatch[index].m_winner);
+			strcpy(temp.m_loser, this->m_tennisMatch[index].m_loser);
+			strcpy(temp.m_tournamentID, this->m_tennisMatch[index].m_tournamentID);
+			strcpy(temp.m_tournamentName, this->m_tennisMatch[index].m_tournamentName);
+			strcpy(temp.m_winner, this->m_tennisMatch[index].m_winner);
 			temp.m_matchID = this->m_tennisMatch[index].m_matchID;
 		}
 		return temp;
@@ -205,11 +203,11 @@ namespace sdds {
 		size_t lines = 0;
 		size_t totalMatches = 0;
 		ifstream file;
-		
+
 		file.open(FileName, ios::in);
-		
+
 		file.get(temp);
-		
+
 		while (file)
 		{
 			if (temp == '\n')
@@ -218,20 +216,20 @@ namespace sdds {
 			}
 			file.get(temp);
 		}
-		
+
 		totalMatches = lines - 1;
-		
+
 		return totalMatches;
 	}
 
 	// A Helper Function :
 	void read(istream& is, TennisMatch* match) {
-		is.getline(match->m_tournamentID, MAX_LEN_TOURNAMENT_ID+1, ',');
-		is.getline(match->m_tournamentName, MAX_LEN_TOURNAMENT_NAME+1, ',');
+		is.getline(match->m_tournamentID, MAX_LEN_TOURNAMENT_ID + 1, ',');
+		is.getline(match->m_tournamentName, MAX_LEN_TOURNAMENT_NAME + 1, ',');
 		is >> match->m_matchID;
 		is.ignore();
-		is.getline(match->m_winner, MAX_LEN_WINNER_NAME+1, ',');
-		is.getline(match->m_loser, MAX_LEN_LOSER_NAME+1, '\n');
+		is.getline(match->m_winner, MAX_LEN_WINNER_NAME + 1, ',');
+		is.getline(match->m_loser, MAX_LEN_LOSER_NAME + 1, '\n');
 
 		return;
 	}
