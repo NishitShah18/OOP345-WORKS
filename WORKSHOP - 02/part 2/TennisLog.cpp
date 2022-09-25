@@ -5,7 +5,7 @@ Full Name   : Nishit Gaurang Shah
 Student ID# : 130 176 217
 Email       : ngshah3@myseneca.ca
 Section     : OOP345 NCC
-Date : 24th September 2022
+Date : 25th September 2022
 Autheticity Declaraition :
 I declare that I have done all the coding by myself and only copied the
 code that my professor provided to complete my workshops and assignments.
@@ -121,49 +121,55 @@ namespace sdds {
 	///////////////
 	// RULE OF 5:-
 	///////////////
-	TennisLog::TennisLog(const TennisLog &src)
+	
+	// Copy constructor
+	TennisLog::TennisLog(const TennisLog &tennislog)
 	{
-		m_tennisMatch = new TennisMatch[src.m_storedMatches];
-		for (size_t i = 0; i < src.m_storedMatches; i++)
+		m_storedMatches = tennislog.m_storedMatches;
+		m_tennisMatch = new TennisMatch[m_storedMatches];
+		for (size_t i = 0; i < m_storedMatches; i++)
 		{
-			m_tennisMatch[i] = src.m_tennisMatch[i];
+			m_tennisMatch[i] = tennislog.m_tennisMatch[i];
 		}
-		m_storedMatches = src.m_storedMatches;
 	}
 
-	TennisLog& TennisLog::operator=(const TennisLog& src)
+	// Copy assignment constructor
+	TennisLog& TennisLog::operator=(const TennisLog& tennislog)
 	{
-		if (this != &src)
+		if (this != &tennislog)
 		{
+			m_storedMatches = tennislog.m_storedMatches;
 			delete[] m_tennisMatch;
-			m_tennisMatch = new TennisMatch[src.m_storedMatches];
-			for (size_t i = 0; i < src.m_storedMatches; i++)
+			m_tennisMatch = new TennisMatch[m_storedMatches];
+			for (size_t i = 0; i < m_storedMatches; i++)
 			{
-				m_tennisMatch[i] = src.m_tennisMatch[i];
+				m_tennisMatch[i] = tennislog.m_tennisMatch[i];
 			}
-			m_storedMatches = src.m_storedMatches;
 		}
 		return *this;
 	}
 
-	TennisLog::TennisLog(TennisLog&& src) noexcept
+	// Move constructor
+	TennisLog::TennisLog(TennisLog&& tennislog) noexcept
 	{
 		m_tennisMatch = nullptr;
-		*this = move(src);
+		*this = move(tennislog);
 	}
 
-	TennisLog& TennisLog::operator=(TennisLog&& src) noexcept
+	// Move assignment constructor
+	TennisLog& TennisLog::operator=(TennisLog&& tennislog) noexcept
 	{
-		if (this != &src)
+		if (this != &tennislog)
 		{
 			delete[] m_tennisMatch;
-			m_tennisMatch = src.m_tennisMatch;
-			m_storedMatches = src.m_storedMatches;
-			src.m_tennisMatch = nullptr;
-			src.m_storedMatches = 0;
+			m_tennisMatch = tennislog.m_tennisMatch;
+			m_storedMatches = tennislog.m_storedMatches;
+			tennislog.m_tennisMatch = nullptr;
+			tennislog.m_storedMatches = 0;
 		}
 		return *this;
 	}
+
 	// Destructor
 	TennisLog::~TennisLog() {
 		delete[] m_tennisMatch;
@@ -177,11 +183,16 @@ namespace sdds {
 		{
 			for (size_t i = 0; i < this->m_storedMatches; i++)
 			{
+
 				strcpy(temp[i].m_loser, this->m_tennisMatch[i].m_loser);
 				strcpy(temp[i].m_tournamentID, this->m_tennisMatch[i].m_tournamentID);
 				strcpy(temp[i].m_tournamentName, this->m_tennisMatch[i].m_tournamentName);
 				strcpy(temp[i].m_winner, this->m_tennisMatch[i].m_winner);
 				temp[i].m_matchID = this->m_tennisMatch[i].m_matchID;
+				
+				// I forgot that these TennisMatches were pointers !! :(
+				// I could have done this every where.
+				// temp[i] = this->m_tennisMatch[i];
 			}
 		}
 
