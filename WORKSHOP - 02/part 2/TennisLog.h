@@ -42,6 +42,8 @@ namespace sdds {
 		char m_winner[MAX_LEN_WINNER_NAME + 1]{};
 		//a string representing the Loser of the match
 		char m_loser[MAX_LEN_LOSER_NAME + 1]{};
+		// Overloaded assignment operator to copy TennisMatch object
+		TennisMatch& operator= (const TennisMatch& rhs);
 	};
 
 	// Overloaded insertion operator to output a TennisMatch object to an output stream.
@@ -75,7 +77,14 @@ namespace sdds {
 		operator size_t();
 
 		// Rule of 5:
-		// Will be here...
+		// Copy constructor
+		TennisLog(const TennisLog& src);
+		// Copy assignment constructor
+		TennisLog& operator=(const TennisLog& src);
+		// Move constructor
+		TennisLog(TennisLog&& src) noexcept;
+		// Move assignment constructor
+		TennisLog& operator=(TennisLog&& src) noexcept;
 		// Destructor 
 		virtual ~TennisLog();
 	};

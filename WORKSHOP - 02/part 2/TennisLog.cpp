@@ -70,6 +70,19 @@ namespace sdds {
 		return os;
 	}
 
+	// Overloaded assignment operator to copy TennisMatch object
+	TennisMatch& TennisMatch::operator= (const TennisMatch& rhs) {
+		// do the copy
+		strcpy(this->m_loser, rhs.m_loser);
+		strcpy(this->m_tournamentID, rhs.m_tournamentID);
+		strcpy(this->m_tournamentName, rhs.m_tournamentName);
+		strcpy(this->m_winner, rhs.m_winner);
+		this->m_matchID = rhs.m_matchID;
+
+		// return the existing object so we can chain this operator
+		return *this;
+	}
+
 	// Default constructor
 	TennisLog::TennisLog() {
 		m_tennisMatch = nullptr;
@@ -105,6 +118,52 @@ namespace sdds {
 		return;
 	}
 
+	///////////////
+	// RULE OF 5:-
+	///////////////
+	TennisLog::TennisLog(const TennisLog &src)
+	{
+		m_tennisMatch = new TennisMatch[src.m_storedMatches];
+		for (size_t i = 0; i < src.m_storedMatches; i++)
+		{
+			m_tennisMatch[i] = src.m_tennisMatch[i];
+		}
+		m_storedMatches = src.m_storedMatches;
+	}
+
+	TennisLog& TennisLog::operator=(const TennisLog& src)
+	{
+		if (this != &src)
+		{
+			delete[] m_tennisMatch;
+			m_tennisMatch = new TennisMatch[src.m_storedMatches];
+			for (size_t i = 0; i < src.m_storedMatches; i++)
+			{
+				m_tennisMatch[i] = src.m_tennisMatch[i];
+			}
+			m_storedMatches = src.m_storedMatches;
+		}
+		return *this;
+	}
+
+	TennisLog::TennisLog(TennisLog&& src) noexcept
+	{
+		m_tennisMatch = nullptr;
+		*this = move(src);
+	}
+
+	TennisLog& TennisLog::operator=(TennisLog&& src) noexcept
+	{
+		if (this != &src)
+		{
+			delete[] m_tennisMatch;
+			m_tennisMatch = src.m_tennisMatch;
+			m_storedMatches = src.m_storedMatches;
+			src.m_tennisMatch = nullptr;
+			src.m_storedMatches = 0;
+		}
+		return *this;
+	}
 	// Destructor
 	TennisLog::~TennisLog() {
 		delete[] m_tennisMatch;
