@@ -85,7 +85,6 @@ namespace sdds {
 
 		m_tennisMatch = new TennisMatch[m_storedMatches];
 
-		int i = 0;
 		ifstream file;
 
 		file.open(FileName, ios::in);
@@ -97,10 +96,9 @@ namespace sdds {
 		}
 		else {
 			file.ignore(1028, '\n');
-			while (file.good())
+			for (size_t i = 0; i < m_storedMatches; i++)
 			{
 				read(file, &m_tennisMatch[i]);
-				i++;
 			}
 		}
 
@@ -118,7 +116,7 @@ namespace sdds {
 		TennisMatch* temp = new TennisMatch[this->m_storedMatches];
 		if (this->m_storedMatches != 0) 
 		{
-			for (int i = 0; i < this->m_storedMatches; i++)
+			for (size_t i = 0; i < this->m_storedMatches; i++)
 			{
 				strcpy(temp[i].m_loser, this->m_tennisMatch[i].m_loser);
 				strcpy(temp[i].m_tournamentID, this->m_tennisMatch[i].m_tournamentID);
@@ -133,7 +131,7 @@ namespace sdds {
 		delete[] this->m_tennisMatch;
 		this->m_tennisMatch = new TennisMatch[this->m_storedMatches];
 
-		for (int i = 0; i < (this->m_storedMatches-1); i++)
+		for (size_t i =0; i < (this->m_storedMatches-1); i++)
 		{
 			strcpy(this->m_tennisMatch[i].m_loser, temp[i].m_loser);
 			strcpy(this->m_tennisMatch[i].m_tournamentID, temp[i].m_tournamentID);
@@ -153,7 +151,7 @@ namespace sdds {
 	// This function receives a name of a player as a parameter and returns a TennisLog object.
 	TennisLog TennisLog::findMatches(const char* name){
 		TennisLog log;
-		for (int i = 0; i < this->m_storedMatches; i++) {
+		for (size_t i = 0; i < this->m_storedMatches; i++) {
 			if (strcmp(this->m_tennisMatch[i].m_loser, name) == 0 || strcmp(this->m_tennisMatch[i].m_winner, name) == 0) {
 				log.m_storedMatches++;
 			}
@@ -161,9 +159,9 @@ namespace sdds {
 
 		log.m_tennisMatch = new TennisMatch[log.m_storedMatches];
 
-		int index = 0;
+		size_t index = 0;
 
-		for (int i = 0; i < this->m_storedMatches && index < log.m_storedMatches; i++)
+		for (size_t i = 0; i < this->m_storedMatches && index < log.m_storedMatches; i++)
 		{
 			if (strcmp(this->m_tennisMatch[i].m_loser, name) == 0 || strcmp(this->m_tennisMatch[i].m_winner, name) == 0) {
 				strcpy(log.m_tennisMatch[index].m_loser, this->m_tennisMatch[i].m_loser);

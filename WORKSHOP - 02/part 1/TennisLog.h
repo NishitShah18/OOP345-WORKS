@@ -53,7 +53,7 @@ namespace sdds {
 		//a dynamic array of TennisMatches
 		TennisMatch* m_tennisMatch;
 		//a count of how many are being stored
-		int m_storedMatches{};
+		size_t m_storedMatches{};
 
 	public:
 		// Default constructor
