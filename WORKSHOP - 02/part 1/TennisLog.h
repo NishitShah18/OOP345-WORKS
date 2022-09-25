@@ -33,15 +33,15 @@ namespace sdds {
 	struct TennisMatch {
 
 		//a string representing the Tournament ID
-		char m_tournamentID[MAX_LEN_TOURNAMENT_ID + 1] = "\0";
+		char m_tournamentID[MAX_LEN_TOURNAMENT_ID + 1]{};
 		//a string representing the Tournament Name
-		char m_tournamentName[MAX_LEN_TOURNAMENT_NAME + 1] = "\0";
+		char m_tournamentName[MAX_LEN_TOURNAMENT_NAME + 1]{};
 		//a positive integer representing the Match ID
 		long long m_matchID{};
 		//a string representing the Winner of the match
-		char m_winner[MAX_LEN_WINNER_NAME + 1] = "\0";
+		char m_winner[MAX_LEN_WINNER_NAME + 1]{};
 		//a string representing the Loser of the match
-		char m_loser[MAX_LEN_LOSER_NAME + 1] = "\0";
+		char m_loser[MAX_LEN_LOSER_NAME + 1]{};
 	};
 
 	// Overloaded insertion operator to output a TennisMatch object to an output stream.
