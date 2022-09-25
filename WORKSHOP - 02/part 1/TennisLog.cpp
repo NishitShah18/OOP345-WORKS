@@ -146,6 +146,8 @@ namespace sdds {
 		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentName, match.m_tournamentName);
 		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_winner, match.m_winner);
 		this->m_tennisMatch[this->m_storedMatches-1].m_matchID = match.m_matchID;
+
+		delete[] temp;
 	}
 
 	// This function receives a name of a player as a parameter and returns a TennisLog object.
