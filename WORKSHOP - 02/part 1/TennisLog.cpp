@@ -115,11 +115,9 @@ namespace sdds {
 
 	// This function receives a TennisMatch object and returns nothing. It adds the object in list.
 	void TennisLog::addMatch(TennisMatch& match){
-		cout << "here1" << endl;
 		TennisMatch* temp = new TennisMatch[this->m_storedMatches];
 		if (this->m_storedMatches != 0) 
 		{
-			cout << "here2.1" << endl;
 			for (int i = 0; i < this->m_storedMatches; i++)
 			{
 				strcpy(temp[i].m_loser, this->m_tennisMatch[i].m_loser);
@@ -128,13 +126,11 @@ namespace sdds {
 				strcpy(temp[i].m_winner, this->m_tennisMatch[i].m_winner);
 				temp[i].m_matchID = this->m_tennisMatch[i].m_matchID;
 			}
-			cout << "here2.2" << endl;
 		}
 
 		this->m_storedMatches++;
 
 		delete[] this->m_tennisMatch;
-		cout << "here3" << endl;
 		this->m_tennisMatch = new TennisMatch[this->m_storedMatches];
 
 		for (int i = 0; i < (this->m_storedMatches-1); i++)
@@ -145,19 +141,40 @@ namespace sdds {
 			strcpy(this->m_tennisMatch[i].m_winner, temp[i].m_winner);
 			this->m_tennisMatch[i].m_matchID = temp[i].m_matchID;
 		}
-		cout << "here4" << endl;
 		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_loser, match.m_loser);
 		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentID, match.m_tournamentID);
 		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentName, match.m_tournamentName);
 		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_winner, match.m_winner);
 		this->m_tennisMatch[this->m_storedMatches-1].m_matchID = match.m_matchID;
-		cout << "here5" << endl;
 	}
 
 	// This function receives a name of a player as a parameter and returns a TennisLog object.
 	TennisLog TennisLog::findMatches(const char* name){
-		TennisLog temp;
-		return temp;
+		TennisLog log;
+		for (int i = 0; i < this->m_storedMatches; i++) {
+			if (strcmp(this->m_tennisMatch[i].m_loser, name) == 0 || strcmp(this->m_tennisMatch[i].m_winner, name) == 0) {
+				log.m_storedMatches++;
+			}
+		}
+
+		log.m_tennisMatch = new TennisMatch[log.m_storedMatches];
+
+		int index = 0;
+
+		for (int i = 0; i < this->m_storedMatches && index < log.m_storedMatches; i++)
+		{
+			if (strcmp(this->m_tennisMatch[i].m_loser, name) == 0 || strcmp(this->m_tennisMatch[i].m_winner, name) == 0) {
+				strcpy(log.m_tennisMatch[index].m_loser, this->m_tennisMatch[i].m_loser);
+				strcpy(log.m_tennisMatch[index].m_tournamentID, this->m_tennisMatch[i].m_tournamentID);
+				strcpy(log.m_tennisMatch[index].m_tournamentName, this->m_tennisMatch[i].m_tournamentName);
+				strcpy(log.m_tennisMatch[index].m_winner, this->m_tennisMatch[i].m_winner);
+				log.m_tennisMatch[index].m_matchID = this->m_tennisMatch[i].m_matchID;
+				
+				index++;
+			}
+		}
+
+		return log;
 	}
 
 	// The query returns the TennisMatch in the dynamic array at the index provided
