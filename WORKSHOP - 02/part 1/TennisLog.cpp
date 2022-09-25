@@ -197,7 +197,7 @@ namespace sdds {
 		return this->m_storedMatches;
 	}
 
-	// Helper Functions :
+	// A Helper Function :
 	size_t countMatches(const char* FileName) {
 		char temp = '\0';
 		size_t lines = 0;
@@ -222,7 +222,7 @@ namespace sdds {
 		return totalMatches;
 	}
 
-	// Helper Functions :
+	// A Helper Function :
 	void read(istream& is, TennisMatch* match) {
 		is.getline(match->m_tournamentID, MAX_LEN_TOURNAMENT_ID, ',');
 		is.getline(match->m_tournamentName, MAX_LEN_TOURNAMENT_NAME, ',');

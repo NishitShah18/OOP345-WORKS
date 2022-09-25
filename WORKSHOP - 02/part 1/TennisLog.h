@@ -31,6 +31,7 @@ namespace sdds {
 
 	// TennisMatch: contains data about a single match between two players
 	struct TennisMatch {
+
 		//a string representing the Tournament ID
 		char m_tournamentID[MAX_LEN_TOURNAMENT_ID + 1] = "\0";
 		//a string representing the Tournament Name
@@ -42,11 +43,13 @@ namespace sdds {
 		//a string representing the Loser of the match
 		char m_loser[MAX_LEN_LOSER_NAME + 1] = "\0";
 	};
+
 	// Overloaded insertion operator to output a TennisMatch object to an output stream.
 	ostream& operator<<(ostream& os, const TennisMatch& match);
 
 	// TennisLog: manages a collection of matches
 	class TennisLog {
+
 		//a dynamic array of TennisMatches
 		TennisMatch* m_tennisMatch;
 		//a count of how many are being stored
@@ -72,7 +75,7 @@ namespace sdds {
 		operator size_t();
 
 		// Rule of 5:
-		// Later...
+		// Will be here...
 		// Destructor 
 		virtual ~TennisLog();
 	};
