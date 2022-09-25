@@ -50,7 +50,7 @@ namespace sdds {
 		//a dynamic array of TennisMatches
 		TennisMatch* m_tennisMatch;
 		//a count of how many are being stored
-		size_t m_storedMatches{};
+		int m_storedMatches{};
 
 	public:
 		// Default constructor
@@ -60,7 +60,7 @@ namespace sdds {
 		TennisLog(const char* FileName);
 
 		// This function receives a TennisMatch object and returns nothing. It adds the object in list.
-		void addMatch(const TennisMatch& match);
+		void addMatch(TennisMatch& match);
 
 		// This function receives a name of a player as a parameter and returns a TennisLog object.
 		TennisLog findMatches(const char* name);
@@ -73,7 +73,8 @@ namespace sdds {
 
 		// Rule of 5:
 		// Later...
-		//virtual ~TennisLog();
+		// Destructor 
+		virtual ~TennisLog();
 	};
 
 	// Helper Functions :

@@ -107,9 +107,51 @@ namespace sdds {
 		return;
 	}
 
+	// Destructor
+	TennisLog::~TennisLog() {
+		delete[] m_tennisMatch;
+		m_storedMatches = 0;
+	}
+
 	// This function receives a TennisMatch object and returns nothing. It adds the object in list.
-	void TennisLog::addMatch(const TennisMatch& match){
-		cout << this->m_storedMatches << endl;
+	void TennisLog::addMatch(TennisMatch& match){
+		cout << "here1" << endl;
+		TennisMatch* temp = new TennisMatch[this->m_storedMatches];
+		if (this->m_storedMatches != 0) 
+		{
+			cout << "here2.1" << endl;
+			for (int i = 0; i < this->m_storedMatches; i++)
+			{
+				strcpy(temp[i].m_loser, this->m_tennisMatch[i].m_loser);
+				strcpy(temp[i].m_tournamentID, this->m_tennisMatch[i].m_tournamentID);
+				strcpy(temp[i].m_tournamentName, this->m_tennisMatch[i].m_tournamentName);
+				strcpy(temp[i].m_winner, this->m_tennisMatch[i].m_winner);
+				temp[i].m_matchID = this->m_tennisMatch[i].m_matchID;
+			}
+			cout << "here2.2" << endl;
+		}
+
+		this->m_storedMatches++;
+
+		delete[] this->m_tennisMatch;
+		cout << "here3" << endl;
+		this->m_tennisMatch = new TennisMatch[this->m_storedMatches];
+
+		for (int i = 0; i < (this->m_storedMatches-1); i++)
+		{
+			strcpy(this->m_tennisMatch[i].m_loser, temp[i].m_loser);
+			strcpy(this->m_tennisMatch[i].m_tournamentID, temp[i].m_tournamentID);
+			strcpy(this->m_tennisMatch[i].m_tournamentName, temp[i].m_tournamentName);
+			strcpy(this->m_tennisMatch[i].m_winner, temp[i].m_winner);
+			this->m_tennisMatch[i].m_matchID = temp[i].m_matchID;
+		}
+		cout << "here4" << endl;
+		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_loser, match.m_loser);
+		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentID, match.m_tournamentID);
+		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_tournamentName, match.m_tournamentName);
+		strcpy(this->m_tennisMatch[this->m_storedMatches-1].m_winner, match.m_winner);
+		this->m_tennisMatch[this->m_storedMatches-1].m_matchID = match.m_matchID;
+		cout << "here5" << endl;
 	}
 
 	// This function receives a name of a player as a parameter and returns a TennisLog object.
