@@ -224,12 +224,12 @@ namespace sdds {
 
 	// A Helper Function :
 	void read(istream& is, TennisMatch* match) {
-		is.getline(match->m_tournamentID, MAX_LEN_TOURNAMENT_ID, ',');
-		is.getline(match->m_tournamentName, MAX_LEN_TOURNAMENT_NAME, ',');
+		is.getline(match->m_tournamentID, 1028, ',');
+		is.getline(match->m_tournamentName, 1028, ',');
 		is >> match->m_matchID;
 		is.ignore();
-		is.getline(match->m_winner, MAX_LEN_WINNER_NAME, ',');
-		is.getline(match->m_loser, MAX_LEN_LOSER_NAME, '\n');
+		is.getline(match->m_winner, 1028, ',');
+		is.getline(match->m_loser, 1028, '\n');
 
 		return;
 	}
