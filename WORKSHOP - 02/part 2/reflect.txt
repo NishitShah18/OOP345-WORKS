@@ -1,0 +1,22 @@
+
+/*************************************************************************
+Workshop 2
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 25th September 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
+In the workshop 2, I learned how to implement the rule of 5 in c++ classes. The workshop was not hard for me but I got difficulties in reading the file. I did not get any logical errors but the error was : "Invalid write of size 1 in getline". I soon figured out where was my mistake by researching online. Then I solved it. Implementation of rule of 5 in was smooth since my professor explained it very perfectly. After that, I created timer module and that was new for me. I used the given reference link in the question and watched many many youtube videos and figured out how to note the time.
+
+Let me talk about the reason for the significant time difference between the copy and move operations and the difference between steady_clock and system_clock as I understood them.
+
+->Move operations are faster because moving allows the source to be left in a invalid state, so you can steal it's resources. For example, if a object holds a pointer to a large block of allocated memory, a move can simply steal the pointer while a copy must allocate its own memory and copy the whole memory block.
+
+->The class std::chrono::steady clock is used to represent a monotonic clock. As physical time passes, this clock's time points cannot get smaller. This clock works best for measuring intervals because it is unrelated to the time displayed on the wall.
+
+->Contrary to the monotonous system clock (i.e. the time can decrease if, say, the user changes the time on the host machine.)
