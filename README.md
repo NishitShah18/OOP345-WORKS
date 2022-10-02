@@ -18,6 +18,16 @@ Section: OOP345 NCC
     <td>September 18</td>
     <td>??/10</td>
   </tr>
+  <tr>
+    <td>Workshop - 2</td>
+    <td>September 25</td>
+    <td>??/10</td>
+  </tr>
+  <tr>
+    <td>Workshop - 3</td>
+    <td>October 2</td>
+    <td>??/10</td>
+  </tr>
 </table>
 
 <hr>
