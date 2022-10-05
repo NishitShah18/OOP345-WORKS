@@ -28,6 +28,11 @@ Section: OOP345 NCC
     <td>October 2</td>
     <td>??/10</td>
   </tr>
+  <tr>
+    <td>Workshop - 4</td>
+    <td>October 9</td>
+    <td>??/10</td>
+  </tr>
 </table>
 
 <hr>
