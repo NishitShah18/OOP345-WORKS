@@ -1,0 +1,19 @@
+/*************************************************************************
+Workshop 3
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 7th October 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
+The third workshop was the hardest workshop I've ever had. In OOP244, I learn how to use the function template, but this is the first time I've used a class template and a specialisation template. Since last semester, I must admit, I didn't really understand templates. I must therefore watch lectures from the previous semester, and I also needed an additional five days to finish this workshop.
+
+Other than the w3 p2.cpp and Directory modules in this workshop, all other files are header files. We chose not to divide the module into.h and.cpp files because the header file should contain all information related to the template that the compiler needs to create the function.
+
+We don't need to specialise the initial value for the summation because the static variable already has a default value of zero.
+
+This is because the class variable must be defined outside of the class definition because it is static.
