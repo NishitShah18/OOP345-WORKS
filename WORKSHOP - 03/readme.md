@@ -2,7 +2,7 @@
 
 In this workshop, you design and code several class templates and test them on different instantiations.
 
-
+Note: I used extension of 5 days.
 
 ## Learning Outcomes
 
