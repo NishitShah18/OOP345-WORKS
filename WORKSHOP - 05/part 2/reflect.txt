@@ -1,0 +1,13 @@
+/*************************************************************************
+Workshop 5
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 16th October 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
+In this workshop 5, I encountered numerous new programming concepts. First, I learned how to declare a class template by writing the prototype before the class template, and then I learned how to use it, as well as how to use and declare template functions. Second, I discovered that a functor that works as a function that is an object can be referred to as a normal function, as I use it in the spellChecker module in the void operator()(string& text)const. The advantage of using it is that it is more flexible than function and can carry state information. Third, I learned lambada expressions, which are a way to define functions without having to define them completely. The lambada syntax consists of three parts: capture list[, function arguments, and function body; when calling the lambada function, the keyword auto is used.The advantages of using it include making our code more readable and increasing code readability. The difference between lambada and functor usage is that lambada is better to use when we want to access a variable directly and we need to call a small piece of code to run one; otherwise, functor is better. Fourth, I learned about exceptions, which use the words try, catch, and throw to exclude some points from the logical target. We can change the code in the function Object() { [native code] } spellchecker to achieve the same results without exceptions by using the if conditional, but using exceptions is easier and uses less memory. By inheriting between the two classes book and movie, it is possible to change the idental logic in loading filedata in movie and book modes. The default function Object() [native code] is required because the destructor will be unable to release the memory, resulting in a memory leak.
