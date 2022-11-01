@@ -16,22 +16,27 @@ Section: OOP345 NCC
   <tr>
     <td>Workshop - 1</td>
     <td>September 18</td>
-    <td>??/10</td>
+    <td>10/10</td>
   </tr>
   <tr>
     <td>Workshop - 2</td>
     <td>September 25</td>
-    <td>??/10</td>
+    <td>10/10</td>
   </tr>
   <tr>
     <td>Workshop - 3</td>
-    <td>October 2</td>
-    <td>??/10</td>
+    <td>October 2 (used extension of 3 days)</td>
+    <td>08/10</td>
   </tr>
   <tr>
     <td>Workshop - 4</td>
     <td>October 9</td>
     <td>??/10</td>
+  </tr>
+  <tr>
+    <td>Workshop - 5</td>
+    <td>October 16</td>
+    <td>10/10</td>
   </tr>
 </table>
 
