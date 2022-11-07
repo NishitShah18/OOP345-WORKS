@@ -1,0 +1,21 @@
+/*************************************************************************
+Workshop 6
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 6th November 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
+This workshop was fairly simple, and concepts were not difficult to grasp and apply, and I gained experience dealing with static and dynamically allocated objects. This workshop also taught me how to use vectors effectively. During the workshop, I had some difficulties working on the File and Filesystem modules, particularly when using certain functions, but to overcome this, I went through lecture recordings and received some assistance from my online tutor to ensure that my concepts were clear and that my solution was as good as it could be.
+
+When we do not deallocate dynamically allocated memory in a vector, we get a memory leak and an error in the heap summary during compilation.
+
+If we create a different solution with functions that identify errors and correct the type of data that the programme accepts by comparing it to a given text file, the function NodeType type() can figure out what went wrong.
+
+It's possible that we should use vectors rather than pointer types for std::vectorsdds::Resource> because vectors allow us to enter and store any data or element while also allowing us to delete that data or element when necessary. I'm not sure why, but I believe using pointers is a better method.
+
+Overall, working on the workshop I learned a lot of new concepts and the workshop was bit time consuming but it was fun.
