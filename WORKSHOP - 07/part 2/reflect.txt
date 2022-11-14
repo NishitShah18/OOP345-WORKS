@@ -1,0 +1,44 @@
+/*************************************************************************
+Workshop 7
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 13th November 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
+1.
+I used the for_each STL function for display() . Because we need to iterate over all the elements of the collection.
+I also used for_each for cleanList as well. I also used any_of for inCollection.
+
+2.
+The benefits are immeasurable. No need to implement details. Just include the arguments and the lambda expression,
+we can do whatever we want.
+
+3. 
+The function that sorts crime collection can use an if statement, specifying the field name to use as a parameter.
+or switch case to check if the string is valid and if not print a message to the user; either the parameter is 
+invalid or an error is thrown. I did not throw the error in the code because it was not required but we can easily
+modify the code to do so.
+
+void CrimeStatistics::sort(std::string str) {
+    if (str == "Province")
+        std::sort(crime.begin(), crime.end(), [&](Crime crime1, Crime crime2) {
+        return crime1.province < crime2.province;
+            });
+    if (str == "Crime")
+        std::sort(crime.begin(), crime.end(), [&](Crime crime1, Crime crime2) {
+        return crime1.desc < crime2.desc;
+            });
+    if (str == "Resolved")
+        std::sort(crime.begin(), crime.end(), [&](Crime crime1, Crime crime2) {
+        return crime1.m_resolved < crime2.m_resolved;
+            });
+    if (str == "Cases")
+        std::sort(crime.begin(), crime.end(), [&](Crime crime1, Crime crime2) {
+        return crime1.cases < crime2.cases;
+            });
+}
