@@ -1,0 +1,22 @@
+/*************************************************************************Workshop 8Full Name   : Nishit Gaurang ShahStudent ID# : 130 176 217Email       : ngshah3@myseneca.caSection     : OOP345 NCCDate : 20th November 2022Autheticity Declaraition :I declare that I have done all the coding by myself and only copied thecode that my professor provided to complete my workshops and assignments.*************************************************************************/
+-> In this workshop, I learned how to use smart pointers to ensure that memory is deallocated in the possible presence of an exception. I implemented a program compponent of quadratic complexity and used a smart pointer to move an object. Overall, this workshop was quite simple and I only had a few doubts in the part 2 where I had to build a list of employees using smart pointers which I understood later after going through the notes.
+-> The advantage that smart pointer syntax provides. Use example from your code to support your explanation:
+-> We all learned that when allocating memory with the "new" keyword, it is necessary to use the "delete" keyword to remove the memory that has been allocated. Smart pointer prevented us from having to delete. Smart pointers can automatically delete the allocated memory.
+Example from my code: 
+std::unique_ptr<EmployeeWage> ew(new EmployeeWage(emp[i].name, sal[j].salary));
+Once created, this unique_ptr will remain valid until the end of its current scope before being destroyed.
+-> The difference between raw and smart pointer syntax in your solution:
+-> Smart pointers cannot be copied, which is how they differ from raw pointers. You must pass it using a reference when passing it into a function.
+Example from my code:
+		//TODO: Overload the += operator with a smart pointer
+		// as a second operand.
+		void operator+=(T &a)
+		{
+			list.push_back(a);
+		}
+		//TODO: Overload the += operator with a raw pointer
+		// as a second operand.
+		void operator+=(T *a)
+		{
+			list.push_back(*a);
+		}

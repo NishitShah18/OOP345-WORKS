@@ -1,3 +1,15 @@
+/*************************************************************************
+Workshop 8
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 20th November 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
 #include "GeneratingList.h"
 #include "EmpProfile.h"
 #include "WritingRecord.h"
@@ -9,8 +21,19 @@ namespace sdds {
 		GeneratingList<EmployeeWage> activeEmp;
 		// TODO: Add your code here to build a list of employees
 		//         using raw pointers
-		
-		
+		for (size_t i = 0; i < emp.size(); i++) {
+			for (size_t j = 0; j < sal.size(); j++) {
+				if (emp[i].id == sal[j].id) {
+					EmployeeWage ew(emp[i].name, sal[j].salary);
+					ew.rangeValidator();
+					if (!activeEmp.SINValidation_LUHN(emp[i].id)) {
+						throw std::string("*** Wrong Salaries with SIN No's");
+					}
+					EmployeeWage *p = &ew;
+					activeEmp += p;
+				}
+			}
+		}
 		return activeEmp;
 	}
 
@@ -18,7 +41,18 @@ namespace sdds {
 		GeneratingList<EmployeeWage> activeEmp;
 		// TODO: Add your code here to build a list of employees
 		//         using smart pointers
-		
+		for (size_t i = 0; i < emp.size(); i++) {
+			for (size_t j = 0; j < sal.size(); j++) {
+				if (emp[i].id == sal[j].id) {
+					std::unique_ptr<EmployeeWage> ew(new EmployeeWage(emp[i].name, sal[j].salary));
+					ew->rangeValidator();
+					if (!activeEmp.SINValidation_LUHN(emp[i].id)) {
+						throw std::string("*** Wrong Salaries with SIN No's");
+					}
+					activeEmp += *ew;
+				}
+			}
+		}
 		return activeEmp;
 	}
 }

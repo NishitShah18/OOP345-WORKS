@@ -1,3 +1,15 @@
+/*************************************************************************
+Workshop 8
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 20th November 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
 #ifndef SDDS_GENERATINGLIST_H
 #define SDDS_GENERATINGLIST_H
 
@@ -34,16 +46,36 @@ namespace sdds {
 
 		//TODO: Implement the Luhn Algorithm to check the 
 		//      valadity of SIN No's
-		
+		bool SINValidation_LUHN(std::string input) {
+			size_t l = input.length();
+			size_t num = 0;
+			size_t sum = 0;
+			for (size_t i = 0; i < l; i++) {
+				num = input[i] - '0';
+				if (i % 2 != 0) {
+					num *= 2;
+					if (num > 9) {
+						num -= 9;
+					}
+				}
+				sum += num;
+			}
+			return sum % 10 == 0;
+		}
 
 		//TODO: Overload the += operator with a smart pointer
 		// as a second operand.
-
+		void operator+=(T &a)
+		{
+			list.push_back(a);
+		}
 		
-
 		//TODO: Overload the += operator with a raw pointer
 		// as a second operand.
-
+		void operator+=(T *a)
+		{
+			list.push_back(*a);
+		}
 		
 		void print(std::ostream& os) const {
 			os << std::fixed << std::setprecision(2);
