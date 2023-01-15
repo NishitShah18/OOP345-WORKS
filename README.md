@@ -41,22 +41,22 @@ Section: OOP345 NCC
   <tr>
     <td>Workshop - 6</td>
     <td>November 6</td>
-    <td>??/10</td>
+    <td>10/10</td>
   </tr>
   <tr>
     <td>Workshop - 7</td>
     <td>November 13</td>
-    <td>??/10</td>
+    <td>10/10</td>
   </tr>
   <tr>
     <td>Workshop - 8</td>
     <td>November 20</td>
-    <td>??/10</td>
+    <td>10/10</td>
   </tr>
   <tr>
     <td>Workshop - 9</td>
     <td>November 27</td>
-    <td>??/10</td>
+    <td>10/10</td>
   </tr>
 </table>
 
