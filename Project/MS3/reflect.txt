@@ -1,0 +1,13 @@
+// M- 3 //
+//
+// Name: Nishit Shah
+// Seneca Student ID: 130 176 217
+// Seneca email: ngshah3@myseneca.ca
+// Date of completion: 12/03/2022
+// Section: OOP345 NCC
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+-> Throughout this final project, I implemented a program where I had to develop a simulation of an assembly line with multiple number of stations. In the milestone 1, I had to develop two modules named Station and Utilities which were used to configure the assembly line and manage information about a particular station on the assembly line. In the milestone 2, I had to use the previously developed modules from milestone 1 and I only had to add one additional module named CustomerOrder for this part. The purpose of this module was that a CustomerObject object would manage a single customer order on the assembly line. Both the milestones 1 and 2 were quite easy to implement and I did not face any difficulties as I was clear about the concepts used in these. I only faced challanges in the milestone 3. The two major modules that I had to implement in this final project were the Workstation and LineManager modules. The LineManager module first moves the customer orders from start to finish, then it configures the workstation objects which were identified by the user and moves the order along the line one step at a time. A Station that the LineManager has activated at the user's request is referred to as a Workstation. Every Workstation, if possible, completes one item from a Customer Order at each step. Orders are moved from station to station by the manager. An order is either complete or incomplete once it reaches the end of the line. If one or more stations did not have enough of the requested items in stock to fill the order, it was considered incomplete.
+I was a bit confused while implementing the constructor LineManager(const std::string& file, const std::vector<Workstation*>& stations) in the LineManager module. In this I had to receive the name of the file that identified active stations on the assembly line. After spending a lot of time reviewing the course notes, I figured it out after using getLine function with multiple if-else conditons in an iteration. Overall, I was able to implement the final Milestone of the project successfully.
+-> This entire project has been both challenging and interesting for me. I was able to build this project using everything we learned this semester. It was a very positive experience, and while I did have some difficulty resolving problems and bugs, I ultimately felt that the time I invested in research and knowledge-building was worthwhile.
