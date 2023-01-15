@@ -1,0 +1,19 @@
+/*************************************************************************
+Workshop 9
+Full Name   : Nishit Gaurang Shah
+Student ID# : 130 176 217
+Email       : ngshah3@myseneca.ca
+Section     : OOP345 NCC
+Date : 27th November 2022
+Autheticity Declaraition :
+I declare that I have done all the coding by myself and only copied the
+code that my professor provided to complete my workshops and assignments.
+*************************************************************************/
+
+I wrote a function in this workshop that used threads, read and wrote to binary files, and bound arguments to functions.
+
+Writing and reading binary files was a little tricky because I had to use reinterpret cast to convert an int variable to a char variable in order to use the read() and write() functions. While I am not entirely certain that there was any benefit to using binary files here, binary files may be preferable when large amounts of data need to be read or written because you do not have to worry about writing code for field and record delimiters.
+
+This workshop made use of function binding. It made it easier to write arguments to be passed to thread functions. Beyond this, I'm not sure what the bind() function does.
+
+The time required to complete the programme in parts where multiple threads were used was significantly less than in parts where no threads were used. For example, when only two threads were used, it took more than twice as long to compute the average and variance as when four threads were used.
